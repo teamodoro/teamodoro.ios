@@ -46,11 +46,11 @@ class ClockViewController: UIViewController {
     }
     
     func didReceiveAPIResponce(notification: NSNotification) {
-        let userInfo: Dictionary<String, Tomato!> = notification.userInfo as Dictionary<String, Tomato!>
+        let userInfo: Dictionary<String, Tomato!> = notification.userInfo as! Dictionary<String, Tomato!>
         let tomato: Tomato = userInfo["userInfo"]!
 
         dispatch_async(dispatch_get_main_queue(), {
-            self.timeLabel.text = self.textLostTime(tomato.lostTime)
+            self.timeLabel.text = self.textLostTime(tomato.lostTime) as String
             self.timeLabel.textColor = tomato.color
             self.timeLabel.setNeedsDisplay()
         })
