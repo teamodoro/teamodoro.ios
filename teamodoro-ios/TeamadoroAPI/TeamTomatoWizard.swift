@@ -39,7 +39,7 @@ class TeamTomatoWizard: NSObject {
                 var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(
                     data,
                     options: NSJSONReadingOptions.MutableContainers,
-                    error: nil) as NSDictionary
+                    error: nil) as! NSDictionary
                 
                 var tomato: Tomato = self.parseResponse(jsonResult)
                 var userInfo = Dictionary<String, Tomato>()
@@ -86,6 +86,6 @@ class TeamTomatoWizard: NSObject {
             }
         }
         
-        return tomato;
+        return tomato
     }
 }
